@@ -660,3 +660,46 @@ nav a {
     padding-bottom: 5px;
   }
 }
+   /* =========================================================
+   🔧 FIX: Mantener “Fuentes” al lado de “¿Quiénes somos?”
+   ========================================================= */
+.main-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;           /* ✅ Evita que los enlaces bajen de línea */
+  gap: 14px;                   /* Espaciado entre enlaces */
+  overflow-x: auto;            /* Si la pantalla es pequeña, se puede hacer scroll */
+  scrollbar-width: none;       /* Oculta barra en Firefox */
+}
+
+.main-nav::-webkit-scrollbar {
+  display: none;               /* Oculta scrollbar en Chrome/Safari */
+}
+
+.main-nav a {
+  color: var(--muted);
+  text-decoration: none;
+  font-weight: 600;
+  padding: 10px 12px;
+  border-radius: 10px;
+  white-space: nowrap;         /* ✅ Mantiene cada palabra en una sola línea */
+  transition: color 0.2s ease, background 0.2s ease;
+}
+
+.main-nav a:hover {
+  color: var(--text);
+  background: rgba(255,255,255,0.05);
+}
+
+.main-nav a.active {
+  color: var(--text);
+}
+
+@media (max-width: 768px) {
+  .main-nav {
+    justify-content: flex-start;
+    padding-bottom: 6px;
+  }
+}
+
